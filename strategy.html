@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/bN80phvj/IMG-2903.jpg" sizes="16x16">
+    <title>Premium Signal Group</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ffffff, #f0f8ff);
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            animation: fadeIn 1.5s ease-in-out;
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-top: 1rem;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #ff9900, #ff7300);
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 30px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        /* Course Modules Section */
+        section {
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .course-modules {
+            background: linear-gradient(135deg, #e3ffe7, #d9e7ff);
+        }
+
+        .course-modules h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .module-list {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .module {
+            background-color: #ffffff;
+            padding: 1px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 270px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 280px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .module:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .module h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        .module p {
+            flex-grow: 1;
+            margin-bottom: 0;
+            color: #555;
+        }
+
+/* General styles for images */
+.module-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* First, Fourth, and Fifth Modules (Normal Size) */
+.module:nth-child(1),
+.module:nth-child(4),
+.module:nth-child(5) {
+    width: 270px; /* Normal size for these modules */
+}
+
+/* Second Module - Smaller Box */
+.module:nth-child(2) {
+    width: 220px; /* Smaller box for the 2nd module */
+}
+
+/* Third Module - Much Smaller Box */
+.module:nth-child(3) {
+    width: 180px; /* Much smaller box for the 3rd module */
+}
+
+/* General Styles for Module */
+.module {
+    background-color: #ffffff;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+}
+
+.module-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: top;
+    align-items: top;
+}
+
+.module-img-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+/* First, Fourth, and Fifth Modules (Normal Size) */
+.module:nth-child(1),
+.module:nth-child(4),
+.module:nth-child(5) {
+    width: 270px; /* Normal size for these modules */
+}
+
+/* Second Module - Smaller Box */
+.module:nth-child(2) {
+    width: 300px; /* Smaller box for the 2nd module */
+}
+
+/* Third Module - Much Smaller Box */
+.module:nth-child(3) {
+    width: 300px; /* Much smaller box for the 3rd module */
+}
+
+/* General Styles for Module */
+.module {
+    background-color: #ffffff;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+}
+
+.module-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.module-img-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+
+        /* Why Choose Us Section */
+        .why-choose {
+            background-color: #f7f9fc;
+        }
+
+        .why-choose h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: #222;
+        }
+
+        .why-choose ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .why-choose li {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .why-choose li::before {
+            content: "✔";
+            color: #2575fc;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .module-list {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .module {
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="hero">
+        <h1>My Ultimate Forex Strategy</h1>
+        <p>Take your trading to the next level with a proven strategy combining ICT, SMC, Supply & Demand, advanced risk management and money management—perfect for Forex and Crypto.</p>
+        <a class="cta-button">Join Now – Start Your Journey Today!</a>
+    </div>
+</header>
+
+<section id="course" class="course-modules">
+    <h2>Preview</h2>
+    <div class="module-list">
+        <div class="module">
+            <h3>Group Preview</h3>
+            <div class="module-img-wrapper">
+                <img src="https://i.postimg.cc/nznMmyJg/IMG-3292.jpg" alt="Premium Signal Group">
+            </div>
+        </div>
+        <div class="module">
+            <h3>Power Of This Strategy</h3>
+            <div class="module-img-wrapper">
+                <img src="https://i.postimg.cc/s2fT0sMk/Screenshot-2025-01-26-171757.jpg" alt="Accurate Signal Bots">
+            </div>
+        </div>
+        <div class="module">
+            <h3>Accuracy Of This Strategy</h3>
+            <div class="module-img-wrapper">
+                <img src="https://i.postimg.cc/KvCnXFRK/image.png" alt="Combo Deal">
+            </div>
+        </div>
+      
+        <div class="module">
+            <h3>Balance</h3>
+            <div class="module-img-wrapper">
+                <img src="https://i.postimg.cc/Dz4ybJh6/IMG-3294.jpg" alt="Combo Deal">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="button-container">
+    <a href="javascript:void(0)" class="button" data-tooltip="Price: ৳3000" onclick="redirectWithDelay()">
+        <div class="button-wrapper">
+            <div class="text">Buy Now</div>
+            <span class="icon">
+                <svg viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+                </svg>
+            </span>
+        </div>
+    </a>
+</div>
+
+<script>
+    function redirectWithDelay() {
+        setTimeout(() => {
+            window.location.href = `https://no-emotion.vercel.app/strategy-payment-method.html?amount=1000`;
+
+        }, 1000);
+    }
+</script>
+
+
+<style>
+/* Adjusting Buy Now Button Position */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; /* Reduced margin-top */
+    padding-bottom: 100px; /* Increased space at the bottom */
+    background-color: #DDF0F6;
+    height: auto;
+    width: auto;
+    transform: translateY(-30px); /* Moves the button slightly upward */
+}
+
+/* Ensure no layout conflict */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* Centering container */
+.centered-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    width: 100%;   /* Full width */
+}
+
+/* Buy Now button styles */
+.button {
+    --width: 100px;
+    --height: 35px;
+    --tooltip-height: 35px;
+    --tooltip-width: 90px;
+    --gap-between-tooltip-to-button: 18px;
+    --button-color: #222;
+    --tooltip-color: #fff;
+    width: var(--width);
+    height: var(--height);
+    background: var(--button-color);
+    position: relative;
+    text-align: center;
+    border-radius: 0.45em;
+    font-family: "Arial";
+    transition: background 0.3s;
+}
+
+.button::before {
+    position: absolute;
+    content: attr(data-tooltip);
+    width: var(--tooltip-width);
+    height: var(--tooltip-height);
+    background-color: #555;
+    font-size: 0.9rem;
+    color: #fff;
+    border-radius: .25em;
+    line-height: var(--tooltip-height);
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+    left: calc(50% - var(--tooltip-width) / 2);
+}
+
+.button::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #555;
+    left: calc(50% - 10px);
+    bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+}
+
+.button::after, .button::before {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-wrapper, .text, .icon {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    color: #fff;
+}
+
+.text {
+    top: 0;
+}
+
+.text, .icon {
+    transition: top 0.5s;
+}
+
+.icon {
+    color: #fff;
+    top: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.button:hover {
+    background: #222;
+}
+
+.button:hover .text {
+    top: -100%;
+}
+
+.button:hover .icon {
+    top: 0;
+}
+
+.button:hover:before, .button:hover:after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.button:hover:after {
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+}
+
+.button:hover:before {
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+}
+</style>
+
+
+<script>
+    let current = 0;
+    const reviews = document.querySelectorAll(".rating-card");
+
+    setInterval(() => {
+        reviews[current].classList.remove("active");
+        current = (current + 1) % reviews.length;
+        reviews[current].classList.add("active");
+    }, 4000);
+</script>
+</body>
+</html>
