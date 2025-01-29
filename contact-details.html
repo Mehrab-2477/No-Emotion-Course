@@ -301,7 +301,7 @@
     // Validate WhatsApp Number (maximum 11 digits)
     if (backupCodes) {
         if (!backupCodes.startsWith('01') || backupCodes.length !== 11 || isNaN(backupCodes)) {
-            errors.push("Wrong Number");
+            errors.push("Invalid Whatsapp Number");
         }
     }
 
