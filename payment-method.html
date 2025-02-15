@@ -247,8 +247,7 @@
 		<!-- Rocket -->
     
 		
-		
-<div class="image-box" onclick="selectImage(this, 'https://nagad-manual.vercel.app/">
+<div class="image-box" onclick="selectImage(this, 'https://nagad-manual.vercel.app/')">
     <img src="https://i.postimg.cc/WbDfFhk9/IMG-3411.jpg" alt="Rocket">
     <div class="checkbox">✔️</div>
 </div>
@@ -288,8 +287,7 @@
 				</div></div>
 
     <script>
-        // Function to get the "amount" parameter from the current URL
-        function getUrlParameter(name) {
+function getUrlParameter(name) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(name); // Returns the value of the specified parameter
         }
@@ -350,13 +348,13 @@
         paymentContainer.style.display = 'none'; // pay container
         loaderContainer.style.display = 'flex'; // loader container
 
+
         // Redirect after 3 seconds of loader display
         setTimeout(() => {
             paymentContainer.style.display = 'flex'; // pay container
             loaderContainer.style.display = 'none'; // loader container
             const baseLink = document.getElementById('paymentLink').dataset.link;
-const amount = getUrlParameter("amount");
-const paymentLinkWithAmount = `${baseLink}amount=${amount}&access=true`;
+            const paymentLinkWithAmount = `${baseLink}?amount=${amount}&access=true`;
             window.location.href = paymentLinkWithAmount; // Redirect with the amount parameter
         }, 3000); // Loader duration: 3 seconds
     }, 1500); // Delay before loader: 1.5 seconds
