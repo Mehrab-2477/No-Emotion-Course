@@ -248,10 +248,10 @@
     
 		
 		
-		<div class="image-box" onclick="selectImage(this, 'https://nagad-manual.vercel.app/?redirect=https://no-emotion.vercel.app/contact-details.html&')">
-        <img src="https://i.postimg.cc/WbDfFhk9/IMG-3411.jpg" alt="Rocket">
-        <div class="checkbox">✔️</div>
-             </div>
+<div class="image-box" onclick="selectImage(this, 'https://nagad-manual.vercel.app/?redirect=' + encodeURIComponent('https://no-emotion.vercel.app/contact-details.html') + '&')">
+    <img src="https://i.postimg.cc/WbDfFhk9/IMG-3411.jpg" alt="Rocket">
+    <div class="checkbox">✔️</div>
+</div>
 	    
 	    </div><br><br>
 	    
@@ -355,7 +355,8 @@
             paymentContainer.style.display = 'flex'; // pay container
             loaderContainer.style.display = 'none'; // loader container
             const baseLink = document.getElementById('paymentLink').dataset.link;
-            const paymentLinkWithAmount = `${baseLink}?amount=${amount}&access=true`;
+const amount = getUrlParameter("amount");
+const paymentLinkWithAmount = `${baseLink}amount=${amount}&access=true`;
             window.location.href = paymentLinkWithAmount; // Redirect with the amount parameter
         }, 3000); // Loader duration: 3 seconds
     }, 1500); // Delay before loader: 1.5 seconds
